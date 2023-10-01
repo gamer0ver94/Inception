@@ -12,7 +12,7 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/dpaulino/Inception/volumes/wp
+      device: /home/dpaulino/data/wp
 
   db:
     name: db
@@ -20,10 +20,11 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/dpaulino/Inception/volumes/db
+      device: /home/dpaulino/data/db
 
 services:
   mariadb:
+    image: mariadb
     container_name: mariadb
     build:
       context: ./requirements/mariadb/
@@ -40,6 +41,7 @@ services:
       - inception_dp
 
   wordpress:
+    image: wordpress
     container_name: wordpress
     build: ./requirements/wordpress/
     env_file: .env
@@ -51,6 +53,7 @@ services:
       - mariadb
 
   nginx:
+    image: nginx
     container_name: nginx
     build: ./requirements/nginx/
     volumes:
