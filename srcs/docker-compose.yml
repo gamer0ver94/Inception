@@ -12,7 +12,7 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/dpaulino/data/wp
+      device: /home/${USER}/data/wp
 
   db:
     name: db
@@ -20,7 +20,7 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/dpaulino/data/db
+      device: /home/${USER}/data/db
 
 services:
   mariadb:

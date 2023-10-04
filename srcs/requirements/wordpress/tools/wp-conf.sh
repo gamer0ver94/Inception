@@ -16,9 +16,7 @@ if [ ! -f "wp-config.php" ]; then
 	echo "Configuring user"
 	wp user create --allow-root --path=/var/www/wordpress ${USER_NAME} ${USER_MAIL} --role=author --user_pass=${USER_PASSWORD}
 fi
-echo "creating folder"
 mkdir -p /run/php/
 chown www-data:www-data /run/php/
-echo "Wordpress service is now up!"
+echo "Wordpress is now running on your machine!"
 exec php-fpm7.4 -F
-echo "DONE"
