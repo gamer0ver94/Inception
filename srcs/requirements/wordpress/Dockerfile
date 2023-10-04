@@ -2,7 +2,7 @@ FROM	debian:bullseye
 
 RUN	apt update && apt upgrade -y
 
-RUN	apt-get install -y php7.4 php7.4-mysql php-fpm curl mariadb-client sendmail
+RUN	apt-get install -y php7.4 php7.4-mysql php-fpm curl mariadb-client
 
 COPY	./conf/www.conf /etc/php/7.4/fpm/pool.d
 

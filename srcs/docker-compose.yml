@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.8"
 
 networks:
   inception_dp:
@@ -24,8 +24,8 @@ volumes:
 
 services:
   mariadb:
-    image: mariadb
     container_name: mariadb
+    image: mariadb:42
     build:
       context: ./requirements/mariadb/
       args:
@@ -41,8 +41,8 @@ services:
       - inception_dp
 
   wordpress:
-    image: wordpress
     container_name: wordpress
+    image: wordpress:42
     build: ./requirements/wordpress/
     env_file: .env
     volumes:
@@ -53,8 +53,8 @@ services:
       - mariadb
 
   nginx:
-    image: nginx
     container_name: nginx
+    image: nginx:42
     build: ./requirements/nginx/
     volumes:
       - wp:/var/www/wordpress
